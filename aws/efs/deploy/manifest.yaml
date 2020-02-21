@@ -3,6 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: efs-provisioner
+  namespace: default
 data:
   file.system.id: fs-abe3f762
   aws.region: eu-west-1
@@ -13,11 +14,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: efs-provisioner
+  namespace: default
 ---
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: efs-provisioner
+  namespace: default
 spec:
   replicas: 1
   strategy:
@@ -66,12 +69,14 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: aws-efs
+  namespace: default
 provisioner: example.com/aws-efs
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: efs
+  namespace: default
   annotations:
     volume.beta.kubernetes.io/storage-class: "aws-efs"
 spec:

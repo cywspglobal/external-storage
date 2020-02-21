@@ -2,8 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: efs-provisioner
+  namespace: default
 data:
-  file.system.id: fs-47a2c22e
-  aws.region: us-west-2
+  file.system.id: fs-abe3f762
+  aws.region: us-west-1
   provisioner.name: example.com/aws-efs
   dns.name: ""
