@@ -5,6 +5,6 @@ metadata:
   namespace: default
 data:
   file.system.id: fs-abe3f762
-  aws.region: us-west-1
+  aws.region: eu-west-1
   provisioner.name: example.com/aws-efs
   dns.name: ""
